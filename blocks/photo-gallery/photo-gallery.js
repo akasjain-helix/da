@@ -1,5 +1,5 @@
 import {
-  button, div, img, span, a,
+  button, div, img, a,
 } from '../../scripts/dom-helpers.js';
 
 function createModal(images, startIndex) {
@@ -264,7 +264,7 @@ export default function decorate(block) {
     const image = row.querySelector('img');
     const imgSrc = image.getAttribute('src');
     const altText = row.querySelector('p');
-    image.setAttribute('data-display', altText?.textContent.trim() || "");
+    image.setAttribute('data-display', altText?.textContent.trim() || '');
     image.setAttribute('alt', altText?.textContent.trim() || imgSrc.split('/').pop().split('.')[0]);
     images.push(image);
   });
