@@ -14,7 +14,7 @@
         left: 50%;
         width: 40px;
         height: 40px;
-        background: url('/icons/more.png') center / cover;
+        background: url('/media/icons/more.png') center / cover;
         display: inline-block;
         transform: translate(-50%, -50%) scale(0);
         transition: transform 0.3s ease;
@@ -119,12 +119,12 @@
 
                     &.prev {
                         left: 0;
-                        background: url("/icons/sprite-prev.png") center left no-repeat;
+                        background: url("/media/icons/sprite-prev.png") center no-repeat;
                     }
 
                     &.next {
                         right: 0;
-                        background: url("/icons/sprite-next.png") center right no-repeat;
+                        background: url("/media/icons/sprite-next.png") center no-repeat;
                     }
                 }
 
@@ -143,7 +143,7 @@
                     right: 5px;
                     width: 28px;
                     height: 28px;
-                    background: url('/icons/sprite.png') 31px -31px no-repeat;
+                    background: url('/media/icons/sprite.png') 17px -31px no-repeat;
                     cursor: pointer;
                     opacity: 0;
                     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -154,7 +154,7 @@
                     }
 
                     &.contracted {
-                        background-position: 31px -85px;
+                        background-position: 17px -85px;
                     }
                 }
 
@@ -183,7 +183,7 @@
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
-                    background: url("/icons/sprite.png") no-repeat;
+                    background: url("/media/icons/sprite.png") no-repeat;
                     border: none;
                     cursor: pointer;
                     padding: 5px;
@@ -249,6 +249,21 @@
                     align-items: center;
                     gap: 5px;
 
+                        .play-button,
+                        .slide-nav {
+                            border: none;
+                            color: transparent;
+                            cursor: pointer;
+                            padding: 0;
+                            background: url("/media/icons/sprite.png") no-repeat;
+                            opacity: 0.8;
+                            transition: opacity 0.3s ease;
+
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+
                         .play-button {
                             height: 30px;
                             width: 30px;
@@ -272,21 +287,6 @@
                                 background-position: -82px -3px;
                             }
                         }
-
-                        .play-button,
-                        .slide-nav {
-                            border: none;
-                            color: transparent;
-                            cursor: pointer;
-                            padding: 0;
-                            background: url("/icons/sprite.png") no-repeat;
-                            opacity: 0.8;
-                            transition: opacity 0.3s ease;
-
-                            &:hover {
-                                opacity: 1;
-                            }
-                        }
                 }
 
                 .image-counter {
@@ -305,7 +305,7 @@
                 }
 
                 .close-button {
-                    background: url("/icons/sprite.png") 2px 1px no-repeat;
+                    background: url("/media/icons/sprite.png") 2px 1px no-repeat;
                     color: transparent;
                     height: 30px;
                     width: 30px;
@@ -318,38 +318,6 @@
                         opacity: 1;
                     }
                 }
-            }
-
-            .social-buttons {
-                display: flex;
-                justify-content: left;
-                gap: 10px;
-                padding-left: 15px;
-                align-items: center;
-                height: 15px;
-
-                .tweet-button {
-                    text-decoration: underline;
-                }
-
-                .like-button {
-                    border-radius: 3px;
-                    font-size: 11px;
-                    height: 20px;
-                    padding: 0 3px;
-                    display: flex;
-                    align-items: center;
-
-                    span {
-                        padding-left: 3px;
-                    }
-
-                    .fb-like {
-                        height: 18px;
-                        width: 18px;
-                    }
-                }
-
             }
         }
     }
@@ -386,8 +354,7 @@
         }
 
         .thumbnails-container,
-        .modal-controls,
-        .social-buttons {
+        .modal-controls {
             display: flex;
         }
     }

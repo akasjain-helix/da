@@ -39,13 +39,8 @@ function createModal(images, startIndex) {
             a({ class: 'slide-nav next' }),
           ),
           div({ class: 'image-counter' }, `${startIndex + 1}/${images.length}`),
-          div({ class: 'modal-title' }, images[startIndex].alt),
+          div({ class: 'modal-title' }, images[startIndex].getAttribute('data-display')),
           button({ class: 'close-button' }),
-        ),
-        div(
-          { class: 'social-buttons' },
-          a({ class: 'tweet-button', href: 'https://twitter.com/share', target: '_blank' }, 'Tweet'),
-          button({ class: 'like-button' }, img({ class: 'fb-like', src: 'https://static.xx.fbcdn.net/rsrc.php/v4/yW/r/gWpQpSsEGQ-.png' }), span('  Like 0')),
         ),
       ),
     ),
@@ -64,7 +59,7 @@ function createModal(images, startIndex) {
     modalImage.src = images[currentIndex].src;
     modalImage.alt = images[currentIndex].alt;
     imageCounter.textContent = `${currentIndex + 1}/${images.length}`;
-    modalTitle.textContent = images[currentIndex].alt;
+    modalTitle.textContent = images[currentIndex].getAttribute('data-display');
 
     // Update active thumbnail and scroll into view if needed
     thumbnails.forEach((thumb, idx) => {
@@ -269,6 +264,7 @@ export default function decorate(block) {
     const image = row.querySelector('img');
     const imgSrc = image.getAttribute('src');
     const altText = row.querySelector('p');
+    image.setAttribute('data-display', altText?.textContent.trim() || "");
     image.setAttribute('alt', altText?.textContent.trim() || imgSrc.split('/').pop().split('.')[0]);
     images.push(image);
   });
